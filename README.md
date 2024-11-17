@@ -3,7 +3,7 @@
 ### How to Run
 - Clone the repository
 - Install dependencies: `npm install`
-- Add your OMDB API key in `App.js`
+- Add your TMDB API key in `App.js`
 - Run the app: `npm run dev`
 
 ### Features
