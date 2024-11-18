@@ -1,8 +1,38 @@
-# React + Vite
+![image](https://github.com/user-attachments/assets/d0414fec-c3dc-4e79-99ae-97d395c0c6fd)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Movie Search App
 
-Currently, two official plugins are available:
+### How to Run
+- Clone the repository
+- Install dependencies: `npm install`
+- Add your TMDB API key in `App.js`
+- Run the app: `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+- Search for movies
+- View movie details in a modal
+
+### Instructions to run the API locally and how to test it.
+- Prerequisites
+- Node.js installed.
+- Postman for testing API requests (optional).
+
+### Discover Movies
+- Endpoint: /discover
+- Method: GET
+  
+![Movie App Api](https://github.com/user-attachments/assets/8c27e66c-0c35-46ce-8cfe-32d163094ab1)
+
+### Fetch Movie Details by ID
+- Endpoint: /movie/:id
+- Method: GET
+  
+![Movie App Api 2](https://github.com/user-attachments/assets/04ec2063-2245-4384-893c-f677a2e96f73)
+
+### Search Movies
+- Endpoint: /search
+- Method: GET
+  
+![Movie App Api 3](https://github.com/user-attachments/assets/db188ac6-8e10-463f-b2d7-eb2234cb789d)
+
+
