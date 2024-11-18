@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/d0414fec-c3dc-4e79-99ae-97d395c0c6fd)
+
 # Movie Search App
 
 ### How to Run
