@@ -65,7 +65,7 @@ const MovieList = () => {
             {movies.length > 0 ? (
               movies.map((movie) =>(
                 <div className="group relative p-3 rounded-md" key={movie.id} onClick={() => setSelectedMovie(movie)}>
-                  <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://bookstore.ams.org/images/not_found.png"} alt={movie.title} className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-85 shadow-md" />
+                  <img src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://bookstore.ams.org/images/not_found.png"} alt={movie.title} className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-85 shadow-md hover:scale-95 transition" />
                   <h3 className='truncate text-md pt-2 text-gray-400'>{movie.title}</h3>
                   <p className='text-sm text-gray-500'>{movie.release_date.split("-")[0]}</p>
                 </div>
