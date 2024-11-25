@@ -8,6 +8,8 @@ const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [sortBy, setSortBy] = useState('popularity.desc');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(0);
 
     useEffect(() => {
       const fetchMovies = async() =>{
@@ -15,13 +17,14 @@ const MovieList = () => {
               params: {
                   api_key: 'af1c1097bb47cc72cb3fd701b8aea56e',
                   sort_by: sortBy,
-                  page: 1,
+                  page: currentPage,
               }
           });
           setMovies(response.data.results);
+          setTotalPage(response.data.total_pages);
       }
       fetchMovies();
-  },[searchQuery, sortBy])
+  },[searchQuery, sortBy, currentPage])
 
   const handleSearchQuery = async(e) =>{
     try{
@@ -32,6 +35,7 @@ const MovieList = () => {
             }
         })
         setMovies(response.data.results);
+        setTotalPage(response.data.total_pages);
     }catch(error){
         console.log("Error found", error)
     }
@@ -39,6 +43,13 @@ const MovieList = () => {
 
   const handleSortChange = (e) =>{
     setSortBy(e.target.value);
+    setCurrentPage(1);
+  }
+
+  const goToPage = (page) =>{
+    if(page >= 1 && page <= totalPage){
+      setCurrentPage(page);
+    }
   }
 
   return (
@@ -78,6 +89,10 @@ const MovieList = () => {
         {selectedMovie && (
             <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)}/>
         )}
+        <div className='pagination mt-6 flex justify-center items-center space-x-4'>
+          <button className='bg-[#202A44] text-white px-4 py-2 rounded-md shadow-md hover:bg-[#1A2334] disabled:opacity-50' onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>Prev</button>
+          <button className='bg-[#202A44] text-white px-4 py-2 rounded-md shadow-md hover:bg-[#1A2334] disabled:opacity-50' onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPage}>Next</button>
+        </div>
     </div>
   )
 }
